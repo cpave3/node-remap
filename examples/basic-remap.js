@@ -1,4 +1,6 @@
 const remap = require('../');
+const Log = require('sleek-log')
+    , log = new Log();
 
 const tobj1 = {
     key1: 'value1',
@@ -20,6 +22,11 @@ const tmap1 = {
     }
 };
 
-console.log('Input: ', tobj1, '\r\n');
-console.log('Transform map: ', tmap1, '\r\n');
-console.log('Result: ', remap(tobj1, tmap1), '\r\n');
+log.info('Input:');
+log.json(tobj1);
+
+log.info('Map:');
+log.json(tmap1);
+
+log.success('Output:');
+log.json(remap(tobj1, tmap1));
